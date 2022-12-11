@@ -76,7 +76,7 @@ enabled = true
 ## Comments
 [comments]
 enabled = true
-provider = "utterances"
+provider = "giscus"
 
 [comments.disqusjs]
 shortname = ""
@@ -127,11 +127,11 @@ serverName = "cactus.chat"
 siteName = ""
 
 [comments.giscus]
-repo = ""
-repoID = ""
-category = ""
-categoryID = ""
-mapping = ""
+repo = "whitescent/whitescent.github.io"
+repoID = "R_kgDOImIPOg"
+category = "General"
+categoryID = "DIC_kwDOImIPOs4CTBAX"
+mapping = "pathname"
 lightTheme = ""
 darkTheme = ""
 reactionsEnabled = 1
