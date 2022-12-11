@@ -86,7 +86,7 @@ admin = ""
 adminLabel = ""
 
 [comments.utterances]
-repo = "whitescent/blog"
+repo = "whitescent/whitescent.github.io"
 issueTerm = "comment"
 label = ""
 
