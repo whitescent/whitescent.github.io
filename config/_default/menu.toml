@@ -22,3 +22,11 @@ url = "https://soundcloud.com/whitescent"
 
 [social.params]
 icon = "brand-soundcloud"
+
+[[social]]
+identifier = "rss"
+name = "rss"
+url = "https://blog.whitescent.top/index.xml"
+
+[social.params]
+icon = "brand-rss"
