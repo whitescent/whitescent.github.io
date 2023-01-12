@@ -5,6 +5,7 @@ categories:
     - Jetpack Compose
     - Android
 date: 2023-01-12 00:00:00+0000
+image: cover.jpg
 ---
 
 ## 前言
@@ -19,7 +20,7 @@ Flow 是一个强大的数据流类型，它能够在很多应用场景下进行
 
 最终实现的效果如下：
 
-![](demo.gif)
+![](https://raw.githubusercontent.com/whitescent/whitescent.github.io/main/content/zh-cn/post/textfield-debounce/demo.gif)
 
 ## 前期工作
 
@@ -204,5 +205,5 @@ fun MyTextField(
 }
 ```
 
-![](demo.gif)
+![](https://raw.githubusercontent.com/whitescent/whitescent.github.io/main/content/zh-cn/post/textfield-debounce/demo.gif)
 

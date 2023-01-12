@@ -3,6 +3,7 @@ title: 三阶魔方单次 PB 解法
 slug: cube-pb
 categories:
     - 日常
+date: 2022-12-12 00:00:00+0000
 ---
 
 
