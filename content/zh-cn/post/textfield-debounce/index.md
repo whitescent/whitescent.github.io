@@ -4,7 +4,7 @@ slug: textfield-debounce
 categories:
     - Jetpack Compose
     - Android
-date: 2023-01-12 00:00:00+0000
+date: 2023-01-13 02:30:00+1000
 image: cover.jpg
 ---
 
