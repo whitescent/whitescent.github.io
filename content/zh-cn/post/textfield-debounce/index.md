@@ -175,6 +175,7 @@ fun MyTextField(
       isError = state.isError
     )
     AnimatedVisibility(state.text.isNotEmpty()) {
+      Spacer(modifier = Modifier.padding(vertical = 6.dp))
       Column {
         // 首先根据用户是否在输入划分 TextField 底下的提示
         when (state.isTyping) {
