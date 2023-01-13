@@ -70,7 +70,7 @@ class MyPageViewModel @Inject constructor() : ViewModel() {
 }
 ```
 
-在刚才的代码中，我们为 `TextField` 分别创建了两个不同的 `flow` 数据流，`inputText flow` 用于检测用户输入的东西是否符合预期，而 `inputUi` 则是纯粹的维护界面状态，
+在刚才的代码中，我们为 `TextField` 分别创建了两个不同的可变数据流，`inputText` 用于检测用户输入的东西是否符合预期，而 `inputUi` 则是纯粹的维护界面状态，
 我们用 `.asStateFlow` 方法给界面公开我们的数据流。
 
 
@@ -118,8 +118,9 @@ fun MyTextField(
 @HiltViewModel
 class MyPageViewModel @Inject constructor() : ViewModel() {
 
-  private val _textFieldState = MutableStateFlow(MyTextFieldUiState())
-  val textFieldUiState = _textFieldState.asStateFlow()
+  private val inputText = MutableStateFlow("")
+  private val inputUi = MutableStateFlow(InputUiState())
+  val inputUiState = inputUi.asStateFlow()
 
   init {
     viewModelScope.launch {
@@ -152,13 +153,12 @@ inputText
   .debounce(800)
   .filterNot(String::isEmpty)
   .onEach {
-    ... // 网络请求
-    value = value.copy(...) // 请求完更新 UiState
+    ... // 处理网络请求并更新 UI 状态
   }
   .catch { throwable ->
     ... // 更新 UiState，告诉用户错误的原因
   }
-  .collect()
+  .collectLatest { }
 ```
 
 在 UI 方面，我们也需要写一些具体的逻辑。
@@ -168,7 +168,7 @@ setContent {
   AppTheme {
     val viewModel: MyPageViewModel = hiltViewModel()
     val state by viewModel.inputUiState.collectAsState()
-    // 获取 textFieldUiState，并当作参数向下传递给 @Composable 组件
+    // 获取 inputUiState，并当作参数向下传递给 @Composable 组件
 
     MyTextField(
       state = state,
