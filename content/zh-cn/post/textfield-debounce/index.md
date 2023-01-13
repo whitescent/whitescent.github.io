@@ -24,7 +24,7 @@ Flow 是一个强大的数据流类型，它能够在很多应用场景下进行
 
 ## 前期工作
 
-UI 层很容易，不过我们需要注意的是，在 Jetpack Compose 中写组件，我们需要尽量保持状态提升的概念以避免重组带来的性能问题，我们先将我们的 `TextField` 封装成一个 `@Composable` 函数
+UI 层很容易，我们先将我们的 `TextField` 封装成一个 `@Composable` 函数
 
 ```kotlin
 @Composable

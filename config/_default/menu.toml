@@ -24,6 +24,14 @@ url = "https://soundcloud.com/whitescent"
 icon = "brand-soundcloud"
 
 [[social]]
+identifier = "steam"
+name = "Steam"
+url = "https://steamcommunity.com/id/rouxzed/"
+
+[social.params]
+icon = "brand-steam"
+
+[[social]]
 identifier = "rss"
 name = "rss"
 url = "https://blog.whitescent.top/index.xml"
