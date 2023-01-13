@@ -29,7 +29,7 @@ UI 层很容易，不过我们需要注意的是，在 Jetpack Compose 中写组
 ```kotlin
 @Composable
 fun MyTextField(
-  state: MyTextFieldUiState,
+  state: InputUiState,
   onValueChange: (String) -> Unit
 ) {
     ...
@@ -43,12 +43,14 @@ enum class ErrorType {
   LengthLimited, InvalidName
 }
 
-data class MyTextFieldUiState(
+data class InputUiState(
   val text: String = "",
-  val isError: Boolean = false,
+  val error: ErrorType? = null,
   val isTyping: Boolean = false,
-  val error: ErrorType? = null
-)
+) {
+  val isError: Boolean inline get() = error != null
+  inline fun isEmpty() = text.isEmpty()
+}
 ```
 
 ## 为 TextField 建立数据流
@@ -62,23 +64,29 @@ data class MyTextFieldUiState(
 ```kotlin
 @HiltViewModel
 class MyPageViewModel @Inject constructor() : ViewModel() {
-    private val _textFieldState = MutableStateFlow(MyTextFieldUiState())
-    val textFieldUiState = _textFieldState.asStateFlow()  
+  private val inputText = MutableStateFlow("")
+  private val inputUi = MutableStateFlow(InputUiState())
+  val inputUiState = inputUi.asStateFlow()
 }
 ```
 
-我们用 `.asStateFlow` 方法给界面公开我们的数据流，数据流的具体更新逻辑应当在 `viewModel` 层完成。
+在刚才的代码中，我们为 `TextField` 分别创建了两个不同的 `flow` 数据流，`inputText flow` 用于检测用户输入的东西是否符合预期，而 `inputUi` 则是纯粹的维护界面状态，
+我们用 `.asStateFlow` 方法给界面公开我们的数据流。
+
 
 接下来为 `TextField` 的文本更新写方法：
 
 ```kotlin
 @HiltViewModel
 class MyPageViewModel @Inject constructor() : ViewModel() {
-  private val _textFieldState = MutableStateFlow(MyTextFieldUiState())
-  val textFieldUiState = _textFieldState.asStateFlow()  
+  private val inputText = MutableStateFlow("")
+  private val inputUi = MutableStateFlow(InputUiState())
+  val inputUiState = inputUi.asStateFlow()
 
   fun onValueChange(text: String) {
-    _textFieldState.value = _textFieldState.value.copy(text = text, isTyping = true)
+    inputText.update { text }  // 更新用于验证的输入
+    inputUi.update { it.copy(text = text, isTyping = true) } 
+    // 更新用于显示在 UI 上的输入
   }
 }
 ```
@@ -88,7 +96,7 @@ UI 层的代码：
 ```kotlin
 @Composable
 fun MyTextField(
-  state: MyTextFieldUiState,
+  state: InputUiState,
   onValueChange: (String) -> Unit
 ) {
   Column {
@@ -97,7 +105,7 @@ fun MyTextField(
       onValueChange = onValueChange,
       isError = state.isError
     )
-    AnimatedVisibility(state.text.isNotEmpty()) {
+    AnimatedVisibility(!state.isEmpty()) {
       Column { ... }
     }
   }
@@ -115,32 +123,43 @@ class MyPageViewModel @Inject constructor() : ViewModel() {
 
   init {
     viewModelScope.launch {
-      _textFieldState
-        .debounce(800) // 设置防抖动的阈值，debounce 方法会在设定的期间过滤所有新发出的值
-        .filter { // 设置只有符合条件的 value 才能进行接下来的 collect 操作
-          it.text.isNotEmpty()
-        }
-        .collect {
-          when {
-            it.text.length > 15 -> _textFieldState.emit(
-              it.copy(isError = true, isTyping = false, error = ErrorType.LengthLimited)
-            )
-            usernameList.contains(it.text) -> _textFieldState.emit(
-              it.copy(isError = true, isTyping = false, error = ErrorType.InvalidName)
-            )
-            else -> _textFieldState.emit(
-              it.copy(isError = false, isTyping = false, error = null)
-            )
-          }
+      inputText
+        .debounce(800)
+        .filterNot(String::isEmpty)
+        .collectLatest {
+          // 防抖验证 Input 是否可用，以更新反馈可用性的 UI
+          inputUi.value = inputUi.value.copy(
+            isTyping = false,
+            error = when {
+              it.length > 15 -> ErrorType.LengthLimited
+              it in usernameList -> ErrorType.InvalidName
+              else -> null
+            },
+          )
         }
     }
   }
 }
 ```
 
-`collect` 方法里就是我们检测用户名是否符合预期的地方，这里我简单模拟了一下，实际上在这里也许需要请求后端来获得结果，不过实际上大同小异。
+`collectLatest` 方法里就是我们检测用户名是否符合预期的地方，这里我简单模拟了一下，实际上在这里也许需要请求后端来获得结果，不过实际上大同小异。
+在检测完，我们通过 inputUi 的 flow 流来为界面层更新最新的状态。
 
-在检测完，我们只需要通过 emit 方法或者手动为 _textFieldState 设置新的 value 来更新最新的数据流。
+网络请求的简单版本：
+
+```kotlin
+inputText
+  .debounce(800)
+  .filterNot(String::isEmpty)
+  .onEach {
+    ... // 网络请求
+    value = value.copy(...) // 请求完更新 UiState
+  }
+  .catch { throwable ->
+    ... // 更新 UiState，告诉用户错误的原因
+  }
+  .collect()
+```
 
 在 UI 方面，我们也需要写一些具体的逻辑。
 
@@ -148,7 +167,7 @@ class MyPageViewModel @Inject constructor() : ViewModel() {
 setContent {
   AppTheme {
     val viewModel: MyPageViewModel = hiltViewModel()
-    val state by viewModel.textFieldUiState.collectAsState() 
+    val state by viewModel.inputUiState.collectAsState()
     // 获取 textFieldUiState，并当作参数向下传递给 @Composable 组件
 
     MyTextField(
@@ -164,7 +183,7 @@ setContent {
 ```kotlin
 @Composable
 fun MyTextField(
-  state: MyTextFieldUiState,
+  state: InputUiState,
   onValueChange: (String) -> Unit
 ) {
   Column {
@@ -174,9 +193,9 @@ fun MyTextField(
       label = { Text("用户名") },
       isError = state.isError
     )
-    AnimatedVisibility(state.text.isNotEmpty()) {
-      Spacer(modifier = Modifier.padding(vertical = 6.dp))
+    AnimatedVisibility(!state.isEmpty()) {
       Column {
+        Spacer(modifier = Modifier.padding(vertical = 6.dp))
         // 首先根据用户是否在输入划分 TextField 底下的提示
         when (state.isTyping) {
           true -> { CircularProgressIndicator(...) }
