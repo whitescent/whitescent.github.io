@@ -20,7 +20,7 @@ WhiteScent 是一个正在努力学习 Android 开发的小透明，同时他还
 
 * {{< soundcloud 1370311252 >}}
 
-他平常喜欢听：UK Hardocre、JPop、Future Bounce、Melodic Progress House etc...
+他平常喜欢听：UK Hardcore、J-Pop、Future Bounce、Melodic Progress House etc...
 
 他喜欢玩的游戏：Assetto Corsa、CSGO、Celeste、Apex、Osu! etc...
 
@@ -62,5 +62,3 @@ WhiteScent 是一个正在努力学习 Android 开发的小透明，同时他还
 主题：[Stack](https://stack.jimmycai.com/)
 
 字体：[LXGW WenKai / 霞鹜文楷](https://github.com/lxgw/LxgwWenKai)
-
-WhiteScent 非常愿意认识新的朋友，如果想和他交换友链，可以在底下评论！

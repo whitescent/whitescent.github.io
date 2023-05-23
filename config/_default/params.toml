@@ -2,7 +2,7 @@
 mainSections = ["post"]
 rssFullContent = true
 
-favicon = "/favicon.ico"
+favicon = "https://avatars.githubusercontent.com/u/31311826?v=4"
 
 [footer]
 since = 2022
@@ -18,8 +18,8 @@ subtitle = "You're my guiding light.🔮"
 
 [sidebar.avatar]
 enabled = true
-local = true
-src = "img/avatar.png"
+local = false
+src = "https://avatars.githubusercontent.com/u/31311826?v=4"
 
 [article]
 math = false
