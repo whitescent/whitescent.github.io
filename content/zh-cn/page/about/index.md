@@ -16,6 +16,8 @@ WhiteScent 是一个正在努力学习 Android 开发的小透明，同时他还
 
 这是 WhiteScent 写过的一些难听的曲子：
 
+* {{< soundcloud 1540936621 >}}
+
 * {{< soundcloud 1238550976 >}}
 
 * {{< soundcloud 1370311252 >}}

@@ -16,6 +16,8 @@ WhiteScent is an ordinary person who is striving to learn Android development, a
 
 Here are some of WhiteScent's poorly written songs:
 
+* {{< soundcloud 1540936621 >}}
+
 * {{< soundcloud 1238550976 >}}
 
 * {{< soundcloud 1370311252 >}}
