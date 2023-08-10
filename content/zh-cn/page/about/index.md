@@ -26,37 +26,6 @@ WhiteScent 是一个正在努力学习 Android 开发的小透明，同时他还
 
 他喜欢玩的游戏：Assetto Corsa、CSGO、Celeste、Apex、Osu! etc...
 
-## 关于他个人的 Setup
-
-以下是他的个人 Setup，希望可以帮助到有需要的人
-
-* PC：
-
-    CPU： i5-12400f
-
-    主板： 华硕 H610M-A
-
-    内存： 金百达 银爵 16x2 32G
-
-    硬盘： rc20 1T
-
-    散热： 雅浚 E3
-
-    电源： 振华铜皇 550w
-
-    网卡： AX201
-
-    显卡： 1660 super
-
-
-* 笔记本：联想 Yoga 14s 2020
-
-* 键盘：佳宫 NJ63Pro 三模 63 配列套件 + 灰木 v3 轴
-
-* 耳机：
-    * 监听耳机：山逊 SR850
-    * 蓝牙耳机：水月雨 NEKOCAKE
-
 ## 关于本站
 
 框架：[Hugo](https://gohugo.io/)
