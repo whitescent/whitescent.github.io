@@ -40,6 +40,10 @@ kotlin {
       implementation(libs.androidx.lifecycle.runtime.compose)
     }
     wasmJsMain {
+      dependencies {
+        implementation(libs.coil.compose)
+        implementation(libs.coil.network)
+      }
       kotlin.srcDir("wasmJsMain/kotlin")
     }
   }
