@@ -17,17 +17,17 @@ import coil3.ImageLoader
 import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
 import coil3.compose.setSingletonImageLoaderFactory
-import coil3.util.DebugLogger
 
 @Composable
 fun App() {
   val platformContext = LocalPlatformContext.current
+
   setSingletonImageLoaderFactory {
     ImageLoader(platformContext)
       .newBuilder()
-      .logger(DebugLogger())
       .build()
   }
+
   Box(
     modifier = Modifier.fillMaxSize()
       .background(Color.Gray),

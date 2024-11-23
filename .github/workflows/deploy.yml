@@ -25,6 +25,9 @@ jobs:
       - name: Build project
         run: ./gradlew wasmJsBrowserDistribution
 
+      - name: Create CNAME file
+        run: echo 'nem.moe' > composeApp/build/dist/wasmJs/productionExecutable/CNAME
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
