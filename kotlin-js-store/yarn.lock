@@ -126,9 +126,9 @@
   integrity sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==
 
 "@types/express-serve-static-core@*", "@types/express-serve-static-core@^5.0.0":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-5.0.1.tgz#3c9997ae9d00bc236e45c6374e84f2596458d9db"
-  integrity sha512-CRICJIl0N5cXDONAdlTv5ShATZ4HEwk6kDDIW2/w9qOWKg+NU/5F8wYRWCrONad0/UKkloNSmmyN/wX4rtpbVA==
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-5.0.2.tgz#812d2871e5eea17fb0bd5214dda7a7b748c0e12a"
+  integrity sha512-vluaspfvWEtE4vcSDlKRNer52DvOGrB2xv6diXy6UKyKW0lqZiWHGNApSyxOv+8DE5Z27IzVvE7hNkxg7EXIcg==
   dependencies:
     "@types/node" "*"
     "@types/qs" "*"
@@ -195,11 +195,11 @@
     "@types/node" "*"
 
 "@types/node@*", "@types/node@>=10.0.0":
-  version "22.9.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.9.2.tgz#51e58f2bf29cc38f529dacbb0eafca890464138e"
-  integrity sha512-wwuxAVEbsRvDD9x7buvAl7DyQ7Oj+va/d/Veug7higYzp9MF0CINbfWTBgDFMpcVwcdUiYuNmX2KfnvY3N70mw==
+  version "22.10.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.10.0.tgz#89bfc9e82496b9c7edea3382583fa94f75896e81"
+  integrity sha512-XC70cRZVElFHfIUB40FgZOBbgJYFKKMa5nb9lxcwYstFG/Mi+/Y0bGS+rs6Dmhmkpq4pnNiLiuZAbc02YCOnmA==
   dependencies:
-    undici-types "~6.19.8"
+    undici-types "~6.20.0"
 
 "@types/qs@*":
   version "6.9.17"
@@ -607,9 +607,9 @@ camelcase@^6.0.0:
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
 caniuse-lite@^1.0.30001669:
-  version "1.0.30001683"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001683.tgz#7f026a2d5d319a9cf8915a1451173052caaadc81"
-  integrity sha512-iqmNnThZ0n70mNwvxpEC2nBJ037ZHZUoBI5Gorh1Mw6IlEAZujEoU1tXA628iZfzm7R9FvFzxbfdgml82a3k8Q==
+  version "1.0.30001684"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001684.tgz#0eca437bab7d5f03452ff0ef9de8299be6b08e16"
+  integrity sha512-G1LRwLIQjBQoyq0ZJGqGIJUXzJ8irpbjHLpVRXDvBEScFJ9b17sgK6vlx0GAJFE21okD7zXl08rRRUfq6HdoEQ==
 
 chalk@^4.1.0:
   version "4.1.2"
@@ -876,9 +876,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.5.41:
-  version "1.5.64"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.64.tgz#ac8c4c89075d35a1514b620f47dfe48a71ec3697"
-  integrity sha512-IXEuxU+5ClW2IGEYFC2T7szbyVgehupCWQe5GNh+H065CD6U6IFN0s4KeAMFGNmQolRU4IV7zGBWSYMmZ8uuqQ==
+  version "1.5.65"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.65.tgz#e2b9d84d31e187a847e3ccdcfb415ddd4a3d1ea7"
+  integrity sha512-PWVzBjghx7/wop6n22vS2MLU8tKGd4Q91aCEGhG/TYmW6PP5OcSXcdnxTe1NNt0T66N8D6jxh4kC8UsdzOGaIw==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -2547,10 +2547,10 @@ ua-parser-js@^0.7.30:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.39.tgz#c71efb46ebeabc461c4612d22d54f88880fabe7e"
   integrity sha512-IZ6acm6RhQHNibSt7+c09hhvsKy9WUr4DVbeq9U8o71qxyYtJpQeDxQnMrVqnIFMLcQjHO0I9wgfO2vIahht4w==
 
-undici-types@~6.19.8:
-  version "6.19.8"
-  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.19.8.tgz#35111c9d1437ab83a7cdc0abae2f26d88eda0a02"
-  integrity sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==
+undici-types@~6.20.0:
+  version "6.20.0"
+  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.20.0.tgz#8171bf22c1f588d1554d55bf204bc624af388433"
+  integrity sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==
 
 universalify@^0.1.0:
   version "0.1.2"
