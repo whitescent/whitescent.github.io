@@ -1,9 +1,10 @@
 [versions]
 androidx-lifecycle = "2.8.3"
-compose-multiplatform = "1.7.0"
+compose-multiplatform = "1.8.0-beta01"
 junit = "4.13.2"
-kotlin = "2.0.21"
+kotlin = "2.1.20"
 coil = "3.0.3"
+adaptive = "1.1.0-beta01"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -14,6 +15,8 @@ androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle
 
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-network = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
+#squircle-shape = "io.github.stoyan-vuchev:squircle-shape:4.0.0-alpha02"
+windowSize = { module = "org.jetbrains.compose.material3:material3-window-size-class", version.ref = "compose-multiplatform" }
 
 [plugins]
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }

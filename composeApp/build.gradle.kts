@@ -38,6 +38,11 @@ kotlin {
       implementation(compose.components.uiToolingPreview)
       implementation(libs.androidx.lifecycle.viewmodel)
       implementation(libs.androidx.lifecycle.runtime.compose)
+      // implementation(libs.adaptive)
+      implementation(libs.windowSize)
+      // implementation(libs.adaptive.layout)
+      // implementation(libs.adaptive.navigation)
+      // implementation(libs.squircle.shape)
     }
     wasmJsMain {
       dependencies {
